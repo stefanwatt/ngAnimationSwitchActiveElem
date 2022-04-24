@@ -18,9 +18,6 @@ display:flex;
   border: 3px solid black;
   overflow:hidden;
 }
-.elem{
-  padding: 4rem;
-}
 
 .redElem{
   background: red;

@@ -51,16 +51,32 @@ const listAnimationLeave = trigger('listAnimationLeave', [
 })
 export class AppComponent {
   title = 'animations';
-  elems = ['redElem', 'blueElem', 'greenElem'];
+  elems = [
+    {
+      id: 1,
+      name: 'Squirtle',
+      img: `https://img.pokemondb.net/sprites/silver/normal/squirtle.png`,
+    },
+    {
+      id: 2,
+      name: 'Bulbasaur',
+      img: `https://img.pokemondb.net/sprites/silver/normal/bulbasaur.png`,
+    },
+    {
+      id: 3,
+      name: 'Charmander',
+      img: `https://img.pokemondb.net/sprites/silver/normal/charmander.png`,
+    },
+  ];
   selectedElem = this.elems[0];
   nextElem = this.elems[0];
   message = '';
 
   onSelectedElemChange = (e: AnimationEvent) => {
     setTimeout(() => {
-      this.message = `That's enough. Come Back ${this.selectedElem}!`;
+      this.message = `That's enough. Come Back ${this.selectedElem.name}!`;
       setTimeout(() => {
-        this.message = `It's your turn now ${this.nextElem}`;
+        this.message = `It's your turn now ${this.nextElem.name}`;
         setTimeout(() => {
           this.selectedElem = this.nextElem;
           this.message = '';

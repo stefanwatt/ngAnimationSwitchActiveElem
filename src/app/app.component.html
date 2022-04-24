@@ -1,9 +1,9 @@
 <label for="elemSelect">Select elem:</label>
 <select [(ngModel)]="nextElem" name="elemSelect" class="elemSelect">
-  <option *ngFor="let elem of elems" [ngValue]="elem">{{ elem }}</option>
+  <option *ngFor="let elem of elems" [ngValue]="elem">{{ elem.name }}</option>
 </select>
-<p>selectedElem={{ selectedElem }}</p>
-<p>nextElem={{ nextElem }}</p>
+<p>selectedElem={{ selectedElem.name }}</p>
+<p>nextElem={{ nextElem.name }}</p>
 <p>Message: {{ message }}</p>
 <div class="outer">
   <div
@@ -15,9 +15,9 @@
     <div *ngFor="let elem of elems">
       <div
         *ngIf="selectedElem === elem && nextElem === elem"
-        class="{{ elem }} elem"
+        class="{{ elem.name }} elem"
       >
-        {{ elem }}
+        <img src="{{ elem.img }}" alt="{{elem.name}.png}" />
       </div>
     </div>
   </div>
