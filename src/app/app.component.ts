@@ -1,16 +1,11 @@
 import { Component } from '@angular/core';
 import { AnimationEvent } from '@angular/animations';
 import {
-  slideInUpOnEnterAnimation,
-  slideOutDownOnLeaveAnimation,
-} from 'angular-animations';
-import {
   trigger,
   transition,
   style,
   animate,
   query,
-  stagger,
 } from '@angular/animations';
 
 const listAnimationEnter = trigger('listAnimationEnter', [
@@ -42,12 +37,7 @@ const listAnimationLeave = trigger('listAnimationLeave', [
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [
-    slideOutDownOnLeaveAnimation(),
-    slideInUpOnEnterAnimation(),
-    listAnimationEnter,
-    listAnimationLeave,
-  ],
+  animations: [listAnimationEnter, listAnimationLeave],
 })
 export class AppComponent {
   title = 'animations';
