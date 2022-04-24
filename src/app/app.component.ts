@@ -18,8 +18,8 @@ const listAnimationEnter = trigger('listAnimationEnter', [
     query(
       ':enter',
       [
-        style({ transform: 'translateY(100%)' }),
-        animate('600ms ease-in', style({ transform: 'translateY(0%)' })),
+        style({ transform: 'translateX(-200%)' }),
+        animate('600ms ease-in', style({ transform: 'translateX(0%)' })),
       ],
       { optional: true }
     ),
@@ -30,8 +30,8 @@ const listAnimationLeave = trigger('listAnimationLeave', [
     query(
       ':leave',
       [
-        style({ transform: 'translateY(0%)' }),
-        animate('600ms ease-in', style({ transform: 'translateY(100%)' })),
+        style({ transform: 'translateX(0%)' }),
+        animate('600ms ease-in', style({ transform: 'translateX(-200%)' })),
       ],
       { optional: true }
     ),
@@ -73,14 +73,12 @@ export class AppComponent {
   message = '';
 
   onSelectedElemChange = (e: AnimationEvent) => {
+    this.message = `That's enough. Come Back ${this.selectedElem.name}!`;
     setTimeout(() => {
-      this.message = `That's enough. Come Back ${this.selectedElem.name}!`;
+      this.message = `It's your turn now ${this.nextElem.name}`;
       setTimeout(() => {
-        this.message = `It's your turn now ${this.nextElem.name}`;
-        setTimeout(() => {
-          this.selectedElem = this.nextElem;
-          this.message = '';
-        }, 1000);
+        this.selectedElem = this.nextElem;
+        this.message = '';
       }, 1000);
     }, 1000);
   };

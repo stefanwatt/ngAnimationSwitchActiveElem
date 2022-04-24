@@ -3,7 +3,6 @@ display:flex;
    justify-content: center;
 }
 .outer{
-  margin:1rem;
    height: 100vh;
    display: flex;
    justify-content: center;
@@ -17,18 +16,4 @@ display:flex;
   height: 200px;
   border: 3px solid black;
   overflow:hidden;
-}
-
-.redElem{
-  background: red;
-  color:white;
-}
-
-.blueElem{
-  background: blue;
-  color:white;
-}
-
-.greenElem{
-  background: green;
 }
